@@ -17,51 +17,24 @@
   ],
   "plugins": [
     "transform-vue-jsx",
-    "transform-runtime",
-    [
-      "component",
-      [
-        {
-          "libraryName": "mint-ui",
-          "style": true
-        }
-      ]
-    ]
+    "transform-runtime"
   ],
-  {
-    {#if_or unit e2e
-    }
-  },
+  {{#if_or unit e2e}},
   "env": {
     "test": {
       "presets": [
         "env",
         "stage-2"
-      ]{
-        {#if_eq runner "karma"
-        }
-      },
+      ]{{#if_eq runner "karma"}},
       "plugins": [
         "transform-vue-jsx",
         "istanbul"
-      ]{
-        {/if_eq
-        }
-      }{
-        {#if_eq runner "jest"
-        }
-      },
+      ]{{/if_eq}}{{#if_eq runner "jest"}},
       "plugins": [
         "transform-vue-jsx",
         "transform-es2015-modules-commonjs",
         "dynamic-import-node"
-      ]{
-        {/if_eq
-        }
-      }
+      ]{{/if_eq}}
     }
-  }{
-    {/if_or
-    }
-  }
+  }{{/if_or}}
 }
